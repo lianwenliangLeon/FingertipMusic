@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<MusicScoreInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MusicName>摇啊摇</MusicName>
+  <BeatsPerMinute>80</BeatsPerMinute>
+  <Beat>2/4</Beat>
+  <Score>1/,3/,2,1/,3/,2,1/,1/,2/,2/,3/,2/,1,3/,0/,2/,0/,1-</Score>
+  <Mode>G</Mode>
+  <Program>1</Program>
+  <MainProgram>1</MainProgram>
+</MusicScoreInfo>

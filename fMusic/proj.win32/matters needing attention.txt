@@ -1,0 +1,3 @@
+1.Box2d.h and relevant files move to cocos:\external\Box2d
+
+2.voice button have some question.
