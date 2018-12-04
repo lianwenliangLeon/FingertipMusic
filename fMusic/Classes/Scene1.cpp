@@ -15,7 +15,7 @@ bool Scene1::init()
 	
 	operateType = operateIndex;
 
-	schedule(schedule_selector(Scene1::update), 0.2f);
+	schedule(schedule_selector(Scene1::update), 0.05f);
 
 	//Test
 	testBlockSet();
@@ -108,9 +108,12 @@ void Scene1::update(float dt)
 	auto rec1 = ciwei->getBoundingBox();
 	auto rec2 = testBlock->getBoundingBox();
 	if (rec2.intersectsRect(rec1)) {
-		ciwei->stopAllActions();
-		auto move = MoveBy::create(1.0f, Vec2(-50, 0));
-		auto size = CCScaleTo::create(1.0f, 1, 1);
+		
+		auto move = MoveBy::create(0.6f, Vec2(-50, 0));
+		auto size = CCScaleTo::create(0.6f, 1, 1);
+		
+
+
 		ciwei->runAction(size);
 		ciwei->runAction(move);
 	}

@@ -407,11 +407,12 @@ bool Stave::initListener()
 		case 1: {
 			auto cA = MoveBy::create(1.0f, Vec2(50, 0));
 			
-			auto dA1 = CCScaleBy::create(0.5f, 0.5, 0.5);
-			auto dA2 = MoveBy::create(1.0f, Vec2(50, 0));
-			auto dA3 = CCScaleBy::create(0.5f, 2, 2);
+			auto dA1 = CCScaleBy::create(0.3f, 0.5, 0.5);
+			auto dA2 = MoveBy::create(0.6f, Vec2(50, 0));
+			auto dA3 = CCScaleBy::create(0.3f, 2, 2);
 			auto dA = Sequence::create(dA1,dA2,dA3,NULL);
-			
+			auto eA = CCJumpBy::create(2, CCPointMake(300, 0), 50, 4);
+
 
 			for (int i = 0; i < 1000; i++)
 			{
@@ -422,6 +423,9 @@ bool Stave::initListener()
 				}break;
 				case d: {
 					ans = Sequence::create(ans, dA, NULL);
+				}break;
+				case e: {
+					ans = Sequence::create(ans, eA, NULL);
 				}break;
 				default:
 					break;
