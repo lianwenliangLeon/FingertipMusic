@@ -153,6 +153,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mainScreen.cpp" />
     <ClCompile Include="..\Classes\Scene1.cpp" />
     <ClCompile Include="..\Classes\SceneFather.cpp" />
+    <ClCompile Include="..\Classes\SpiriteClass.cpp" />
     <ClCompile Include="..\Classes\staveClass.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -162,6 +163,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mainScreen.h" />
     <ClInclude Include="..\Classes\Scene1.h" />
     <ClInclude Include="..\Classes\SceneFather.h" />
+    <ClInclude Include="..\Classes\SceneHead.h" />
+    <ClInclude Include="..\Classes\SpiriteClass.h" />
+    <ClInclude Include="..\Classes\Sprite_Action.h" />
     <ClInclude Include="..\Classes\staveClass.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
@@ -179,9 +183,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="matters needing attention.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

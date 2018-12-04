@@ -18,19 +18,22 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\checkpointscreen.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\mainScreen.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Scene1.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\checkpointscreen.cpp">
+    <ClCompile Include="..\Classes\SceneFather.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpiriteClass.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\staveClass.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\SceneFather.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,19 +44,28 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\checkpointscreen.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\mainScreen.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Scene1.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\checkpointscreen.h">
+    <ClInclude Include="..\Classes\SceneFather.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneHead.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpiriteClass.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sprite_Action.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\staveClass.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\SceneFather.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
@@ -61,10 +73,5 @@
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="matters needing attention.txt">
-      <Filter>src</Filter>
-    </Text>
   </ItemGroup>
 </Project>

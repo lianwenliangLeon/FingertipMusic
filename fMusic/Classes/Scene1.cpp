@@ -82,8 +82,9 @@ void Scene1::roleRun()
 	}
 	Size s = Director::getInstance()->getVisibleSize();
 	ciwei = Sprite::createWithSpriteFrameName("ciwei0.png");
-	ciwei->setPosition(Vec2(100, GROUND__HIGHT));
+	ciwei->setPosition(Vec2(100, GROUND__HIGHT-30));
 	addChild(ciwei, 5);
+	ciwei->setAnchorPoint(Vec2(1, 0));
 
 	Animation * animation1 = Animation::createWithSpriteFrames(animFrames1, 0.2);
 	ciwei->runAction(RepeatForever::create(Animate::create(animation1)));
