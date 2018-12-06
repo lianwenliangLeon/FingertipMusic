@@ -401,19 +401,15 @@ bool Stave::initListener()
 
 	runBut->addClickEventListener([&](Ref * ref) {
 		auto ans = Sequence::create(MoveBy::create(0.3f, Vec2(0, 0)) ,NULL);
+		auto cA = MoveBy::create(0.6f, Vec2(50, 0));
+		auto dA1 = CCScaleBy::create(0.3f, 0.5, 0.5);
+		auto dA2 = MoveBy::create(0.6f, Vec2(50, 0));
+		auto dA3 = CCScaleBy::create(0.3f, 2, 2);
+		auto dA = Sequence::create(dA1, dA2, dA3, NULL);
 
 		switch (operateType)
 		{
 		case 1: {
-			auto cA = MoveBy::create(0.6f, Vec2(50, 0));
-			
-			auto dA1 = CCScaleBy::create(0.3f, 0.5, 0.5);
-			auto dA2 = MoveBy::create(0.6f, Vec2(50, 0));
-			auto dA3 = CCScaleBy::create(0.3f, 2, 2);
-			auto dA = Sequence::create(dA1,dA2,dA3,NULL);
-			auto eA = CCJumpBy::create(2, CCPointMake(300, 0), 80, 1);
-
-
 			for (int i = 0; i < 1000; i++)
 			{
 				switch (Arr[i])
@@ -425,14 +421,15 @@ bool Stave::initListener()
 					ans = Sequence::create(ans, dA, NULL);
 				}break;
 				case e: {
+					auto eA = CCJumpBy::create(2, CCPointMake(300, 0), 80, 1);
 					ans = Sequence::create(ans, eA, NULL);
 				}break;
 				default:
 					break;
 				}
-
 				Arr[i] = -1;
 			}
+			getCurSprite()->runAction(ans);
 		}break;
 		default:
 			break;

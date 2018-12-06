@@ -105,20 +105,19 @@ void Scene1::settingAction()
 
 void Scene1::update(float dt)
 {
-
+	auto director= Director::getInstance();
 
 
 	auto rec1 = ciwei->getBoundingBox();
 	auto rec2 = testBlock->getBoundingBox();
 	if (rec2.intersectsRect(rec1)) {
-		
+		director->getActionManager()->pauseTarget(ciwei);
 		auto move = MoveBy::create(0.6f, Vec2(-50, 0));
 		auto size = CCScaleTo::create(0.6f, 1, 1);
 		
-
-
-		ciwei->runAction(size);
-		ciwei->runAction(move);
+		ciwei->runAction(size);//none conflict £¿
+		ciwei->runAction(move);//none conflict £¿
+		director->getActionManager()->resumeTarget(ciwei);
 	}
 }
 
