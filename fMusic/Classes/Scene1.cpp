@@ -105,6 +105,9 @@ void Scene1::settingAction()
 
 void Scene1::update(float dt)
 {
+
+
+
 	auto rec1 = ciwei->getBoundingBox();
 	auto rec2 = testBlock->getBoundingBox();
 	if (rec2.intersectsRect(rec1)) {
