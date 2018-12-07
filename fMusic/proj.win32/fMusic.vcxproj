@@ -161,7 +161,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\checkpointscreen.h" />
     <ClInclude Include="..\Classes\mainScreen.h" />
-    <ClInclude Include="..\Classes\publicFunc.h" />
     <ClInclude Include="..\Classes\Scene1.h" />
     <ClInclude Include="..\Classes\SceneFather.h" />
     <ClInclude Include="..\Classes\SceneHead.h" />

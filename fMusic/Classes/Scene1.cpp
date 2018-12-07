@@ -110,7 +110,7 @@ void Scene1::update(float dt)
 
 	auto rec1 = ciwei->getBoundingBox();
 	auto rec2 = testBlock->getBoundingBox();
-	if (rec2.intersectsRect(rec1)) {
+	if (rec2.intersectsRectAndWays(rec1)) {
 		director->getActionManager()->pauseTarget(ciwei);
 		auto move = MoveBy::create(0.6f, Vec2(-50, 0));
 		auto size = CCScaleTo::create(0.6f, 1, 1);

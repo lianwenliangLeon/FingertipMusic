@@ -68,9 +68,6 @@
     <ClInclude Include="..\Classes\staveClass.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\publicFunc.h">
-      <Filter>src</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
