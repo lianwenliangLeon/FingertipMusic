@@ -105,18 +105,61 @@ void Scene1::settingAction()
 
 void Scene1::update(float dt)
 {
+
+	const int Left = 1;
+	const int Right = 2;
+	const int up = 3;
+	const int under = 4;
+	const int non = 0;
+
 	auto director= Director::getInstance();
 
 
 	auto rec1 = ciwei->getBoundingBox();
 	auto rec2 = testBlock->getBoundingBox();
-	if (rec2.intersectsRectAndWays(rec1)) {
+
+	int res;
+
+	if (res=rec2.intersectsRect(rec1)) {
 		director->getActionManager()->pauseTarget(ciwei);
+
+
 		auto move = MoveBy::create(0.6f, Vec2(-50, 0));
 		auto size = CCScaleTo::create(0.6f, 1, 1);
-		
+
 		ciwei->runAction(size);//none conflict £¿
 		ciwei->runAction(move);//none conflict £¿
+
+	/*	switch (res)
+		{
+		case Left:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(-50, 0));
+			auto size = CCScaleTo::create(0.6f, 1, 1);
+
+			ciwei->runAction(size);//none conflict £¿
+			ciwei->runAction(move);//none conflict £¿
+		}break;
+		case Right:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(50, 0));
+			auto size =CCScaleTo::create(0.6f, 1, 1);
+			ciwei->runAction(size);//none conflict £¿
+			ciwei->runAction(move);//none conflict £¿
+		}break;
+		case up:
+		{
+
+		}break;
+		case under:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(0, -50));
+			auto size = CCScaleTo::create(0.6f, 1, 1);
+		}break;
+		default:
+			break;
+		}*/
+
 		director->getActionManager()->resumeTarget(ciwei);
 	}
 }
