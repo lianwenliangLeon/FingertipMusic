@@ -2,15 +2,14 @@
 
 bool Scene1::init()
 {
-	if (!Scene::initWithPhysics())
-		return false;
-
-	//PhysicsWorld::step(1.0/ 120);
+	Scene::init();
 
 	winSize = Director::getInstance()->getVisibleSize();
 
+	roleRun();
 	initSprite();
 	initWorld();
+	initBackGround();
 	initVoice();
 	settingAction();
 	
@@ -19,7 +18,7 @@ bool Scene1::init()
 	schedule(schedule_selector(Scene1::update), 0.05f);
 
 	//Test
-	BlockSet();
+	testBlockSet();
 	//Test end
 
 	return true;
@@ -31,6 +30,25 @@ void Scene1::initWorld()//initialize world
 	world->SetContactListener(this);
 }
 
+void Scene1::initBackGround()
+{
+	Size groundUpSize = groundUp->getContentSize();
+	Size groundDownSize = groundDown->getContentSize();
+	
+	groundDown->setPosition(Vec2(winSize.width/2,groundDownSize.height/2));
+	groundUp->setPosition(Vec2(winSize.width / 2, groundDownSize.height + groundUpSize.height / 2));
+	addChild(groundUp, -1);
+	addChild(groundDown, 1);
+	
+	treeL1->setPosition(Vec2(400, groundDown->getContentSize().height - 20));
+	addChild(treeL1); //set render order
+	treeL2->setPosition(Vec2(700, 500));
+	addChild(treeL2);
+
+	stave->setPosition(Vec2(717,188));
+	addChild(stave, 2);
+}
+
 void Scene1::initVoice()
 {
 	SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("music\\scene1.mp3");
@@ -40,7 +58,18 @@ void Scene1::initVoice()
 
 void Scene1::initSprite()
 {
-	//ciwei 
+	groundUp = Sprite::create("scene 1 chapter up.png");
+	groundDown = Sprite::create("scene 1 chapter down.png");
+	treeL1=Sprite::create("tree1.png");//left first
+	treeL2 = Sprite::create("tree2.png");
+	stave =Stave::create("stave.png",__BASIC__MODEL__);
+	
+	stave->setCurSprite(ciwei);
+}
+
+//test
+void Scene1::roleRun()
+{
 	SpriteFrameCache * cache = SpriteFrameCache::getInstance();
 	cache->addSpriteFramesWithFile("ciwei.plist");
 	Vector <SpriteFrame *> animFrames1;
@@ -53,48 +82,12 @@ void Scene1::initSprite()
 	}
 	Size s = Director::getInstance()->getVisibleSize();
 	ciwei = Sprite::createWithSpriteFrameName("ciwei0.png");
-	ciwei->setPosition(Vec2(100, GROUND__HIGHT - 30));
+	ciwei->setPosition(Vec2(100, GROUND__HIGHT-30));
 	addChild(ciwei, 5);
 	ciwei->setAnchorPoint(Vec2(1, 0));
 
-	auto physicsBody = PhysicsBody::createBox(Size(50, 65));
-	physicsBody->setDynamic(true);
-	ciwei->addComponent(physicsBody);
-
 	Animation * animation1 = Animation::createWithSpriteFrames(animFrames1, 0.2);
 	ciwei->runAction(RepeatForever::create(Animate::create(animation1)));
-
-	groundUp = Sprite::create("scene 1 chapter up.png");
-	groundDown = Sprite::create("scene 1 chapter down.png");
-	treeL1 = Sprite::create("tree1.png");//left first
-	treeL2 = Sprite::create("tree2.png");
-	stave = Stave::create("stave.png", __BASIC__MODEL__);
-
-	stave->setCurSprite(ciwei);
-
-
-	// groundback
-	Size groundUpSize = groundUp->getContentSize();
-	Size groundDownSize = groundDown->getContentSize();
-
-	groundDown->setPosition(Vec2(winSize.width / 2, groundDownSize.height / 2));
-	groundUp->setPosition(Vec2(winSize.width / 2, groundDownSize.height + groundUpSize.height / 2));
-	physicsBody = PhysicsBody::createBox(Size(1440, 372),PhysicsMaterial(100.0f, 1.0f, 0.0f));
-	physicsBody->setDynamic(false);
-	groundDown->addComponent(physicsBody);
-
-
-	addChild(groundUp, -1);
-	addChild(groundDown, 1);
-
-	treeL1->setPosition(Vec2(400, groundDown->getContentSize().height - 20));
-	addChild(treeL1); //set render order
-	treeL2->setPosition(Vec2(700, 500));
-	addChild(treeL2);
-
-	stave->setPosition(Vec2(717, 188));
-	addChild(stave, 2);
-
 
 	
 }
@@ -127,17 +120,53 @@ void Scene1::update(float dt)
 
 	int res;
 
-	
+	if (res=rec2.intersectsRect(rec1)) {
+		director->getActionManager()->pauseTarget(ciwei);
+
+
+		auto move = MoveBy::create(0.6f, Vec2(-50, 0));
+		auto size = CCScaleTo::create(0.6f, 1, 1);
+
+		ciwei->runAction(size);//none conflict £¿
+		ciwei->runAction(move);//none conflict £¿
+
+	/*	switch (res)
+		{
+		case Left:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(-50, 0));
+			auto size = CCScaleTo::create(0.6f, 1, 1);
+
+			ciwei->runAction(size);//none conflict £¿
+			ciwei->runAction(move);//none conflict £¿
+		}break;
+		case Right:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(50, 0));
+			auto size =CCScaleTo::create(0.6f, 1, 1);
+			ciwei->runAction(size);//none conflict £¿
+			ciwei->runAction(move);//none conflict £¿
+		}break;
+		case up:
+		{
+
+		}break;
+		case under:
+		{
+			auto move = MoveBy::create(0.6f, Vec2(0, -50));
+			auto size = CCScaleTo::create(0.6f, 1, 1);
+		}break;
+		default:
+			break;
+		}*/
+
+		director->getActionManager()->resumeTarget(ciwei);
+	}
 }
 
-void Scene1::BlockSet()
+void Scene1::testBlockSet()
 {
 	testBlock = Sprite::create("block.png");
 	testBlock->setPosition(Vec2(400, GROUND__HIGHT));
-
-	auto physicsBody = PhysicsBody::createBox(Size(80, 80));
-	physicsBody->setDynamic(false);
-	testBlock->addComponent(physicsBody);
-
 	addChild(testBlock,5);
 }
