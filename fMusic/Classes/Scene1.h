@@ -31,14 +31,17 @@ public:
 	CREATE_FUNC(Scene1);
 	bool init();
 	void initWorld();
+	void initBackGround();
 	void initVoice();
 	void initSprite();
 	//void initListener();
+	void roleRun();
 	void update(float dt);
 
-	//Block need change to a array
+
+	//Test
 	Sprite * testBlock;
-	void BlockSet();
+	void testBlockSet();
 
 
 	//Test end
