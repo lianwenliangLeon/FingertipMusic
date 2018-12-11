@@ -421,7 +421,7 @@ bool Stave::initListener()
 					ans = Sequence::create(ans, dA, NULL);
 				}break;
 				case e: {
-					auto eA = CCJumpBy::create(2, CCPointMake(300, 0), 80, 1);
+					auto eA = CCJumpBy::create(2, CCPointMake(300, 0), 50, 1);
 					ans = Sequence::create(ans, eA, NULL);
 				}break;
 				default:
