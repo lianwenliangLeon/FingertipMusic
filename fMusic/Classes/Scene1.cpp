@@ -59,6 +59,7 @@ void Scene1::initSprite()
 
 	auto physicsBody = PhysicsBody::createBox(Size(50, 65));
 	physicsBody->setDynamic(true);
+	
 	ciwei->addComponent(physicsBody);
 
 	Animation * animation1 = Animation::createWithSpriteFrames(animFrames1, 0.2);
@@ -79,7 +80,9 @@ void Scene1::initSprite()
 
 	groundDown->setPosition(Vec2(winSize.width / 2, groundDownSize.height / 2));
 	groundUp->setPosition(Vec2(winSize.width / 2, groundDownSize.height + groundUpSize.height / 2));
-	physicsBody = PhysicsBody::createBox(Size(1440, 372),PhysicsMaterial(100.0f, 1.0f, 0.0f));
+
+
+	physicsBody = PhysicsBody::createBox(Size(1440, 372),PhysicsMaterial(100.0f, 0.0f, 1.0f));
 	physicsBody->setDynamic(false);
 	groundDown->addComponent(physicsBody);
 

@@ -400,11 +400,11 @@ bool Stave::initListener()
 	});
 
 	runBut->addClickEventListener([&](Ref * ref) {
-		auto ans = Sequence::create(MoveBy::create(0.3f, Vec2(0, 0)) ,NULL);
-		auto cA = MoveBy::create(0.6f, Vec2(50, 0));
-		auto dA1 = CCScaleBy::create(0.3f, 0.5, 0.5);
-		auto dA2 = MoveBy::create(0.6f, Vec2(50, 0));
-		auto dA3 = CCScaleBy::create(0.3f, 2, 2);
+		auto ans = Sequence::create(MoveBy::create(0.1f, Vec2(0, 0)) ,NULL);
+		auto cA = MoveBy::create(0.2f, Vec2(50, 0));
+		auto dA1 = CCScaleBy::create(0.1f, 0.5, 0.5);
+		auto dA2 = MoveBy::create(0.2f, Vec2(50, 0));
+		auto dA3 = CCScaleBy::create(0.1f, 2, 2);
 		auto dA = Sequence::create(dA1, dA2, dA3, NULL);
 
 		switch (operateType)
