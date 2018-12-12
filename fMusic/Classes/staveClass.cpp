@@ -154,6 +154,7 @@ bool Stave::initPram()
 	return true;
 }
 
+// TODO wrong note position (yjp) 
 void Stave::updateStave()
 {
 	int start = index * PAGE_VOLUME;
@@ -435,6 +436,7 @@ bool Stave::initListener()
 		updateStave();
 	});
 
+	// TODO improve d action (yjp) 
 	runBut->addClickEventListener([&](Ref * ref) {
 		auto ans = Sequence::create(MoveBy::create(0.3f, Vec2(0, 0)) ,NULL);
 		auto cA = MoveBy::create(0.6f, Vec2(50, 0));
