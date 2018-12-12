@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -14,6 +14,7 @@
     <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
     <RootNamespace>test_win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -152,9 +153,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\checkpointscreen.cpp" />
     <ClCompile Include="..\Classes\mainScreen.cpp" />
     <ClCompile Include="..\Classes\Scene1.cpp" />
+    <ClCompile Include="..\Classes\Scene2.cpp" />
     <ClCompile Include="..\Classes\SceneFather.cpp" />
     <ClCompile Include="..\Classes\SpiriteClass.cpp" />
     <ClCompile Include="..\Classes\staveClass.cpp" />
+    <ClCompile Include="..\Classes\Synth.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +165,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\checkpointscreen.h" />
     <ClInclude Include="..\Classes\mainScreen.h" />
     <ClInclude Include="..\Classes\Scene1.h" />
+    <ClInclude Include="..\Classes\Scene2.h" />
     <ClInclude Include="..\Classes\SceneFather.h" />
     <ClInclude Include="..\Classes\SceneHead.h" />
     <ClInclude Include="..\Classes\SpiriteClass.h" />
     <ClInclude Include="..\Classes\Sprite_Action.h" />
     <ClInclude Include="..\Classes\staveClass.h" />
+    <ClInclude Include="..\Classes\Synth.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
@@ -184,7 +189,17 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\vcpkg-export-20181212-002414.1.0.0\build\native\vcpkg-export-20181212-002414.targets" Condition="Exists('packages\vcpkg-export-20181212-002414.1.0.0\build\native\vcpkg-export-20181212-002414.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\vcpkg-export-20181212-002414.1.0.0\build\native\vcpkg-export-20181212-002414.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\vcpkg-export-20181212-002414.1.0.0\build\native\vcpkg-export-20181212-002414.targets'))" />
+  </Target>
 </Project>

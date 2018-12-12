@@ -1,5 +1,5 @@
 #include"checkpointscreen.h"
-
+#include "Scene2.h"
 
 #include<iostream>
 
@@ -146,7 +146,8 @@ void checkpointScene::enterAdventure_1_1(Ref * pSender)
 
 void checkpointScene::enterAdventure_1_2(Ref * pSender)
 {
-	pSender;
+	auto scene = Scene2::create();
+	Director::getInstance()->replaceScene(TransitionFade::create(2, scene));
 }
 
 void checkpointScene::enterAdventure_1_3(Ref * pSender)

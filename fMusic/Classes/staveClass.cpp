@@ -247,6 +247,7 @@ bool Stave::initStaveNote()
 
 bool Stave::initListener()
 {
+	static const int CMajor[7] = { 60, 62, 64, 65, 67, 69, 71 };
 	cP->addClickEventListener([&](Ref * ref) {
 		int start = index * PAGE_VOLUME;
 		int i = 0,flag=0;
@@ -265,6 +266,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = c;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[0], 80);
+		// yjp
 	});
 
 	dP->addClickEventListener([&](Ref * ref) {
@@ -285,6 +291,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = d;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[1], 80);
+		// yjp
 	});
 
 	eP->addClickEventListener([&](Ref * ref) {
@@ -305,6 +316,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = e;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[2], 80);
+		// yjp
 	});
 
 	fP->addClickEventListener([&](Ref * ref) {
@@ -325,6 +341,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = f;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[3], 80);
+		// yjp
 	});
 
 	gP->addClickEventListener([&](Ref * ref) {
@@ -345,6 +366,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = g;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[4], 80);
+		// yjp
 	});
 
 	aP->addClickEventListener([&](Ref * ref) {
@@ -365,6 +391,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = a;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[5], 80);
+		// yjp
 	});
 
 	bP->addClickEventListener([&](Ref * ref) {
@@ -385,6 +416,11 @@ bool Stave::initListener()
 			Arr[index * PAGE_VOLUME] = b;
 		}
 		updateStave();
+
+		// yjp
+		fluid_synth_all_notes_off(synth.synth, 0);
+		fluid_synth_noteon(synth.synth, 0, CMajor[6], 80);
+		// yjp
 	});
 
 	buttonLeft->addClickEventListener([&](Ref * ref) {

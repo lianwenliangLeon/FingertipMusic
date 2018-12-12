@@ -5,4 +5,5 @@
 .vs
 
 Debug.win32
-
+packages
+packages.config

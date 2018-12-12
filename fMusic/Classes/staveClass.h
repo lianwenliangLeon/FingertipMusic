@@ -5,6 +5,7 @@
 #include"cocos2d.h"
 #include"cocos-ext.h"
 //#include"Sprite_Action.h"
+#include "Synth.h"
 
 
 USING_NS_CC;
@@ -44,6 +45,9 @@ private:
 	int index;//pages number
 	cocos2d::ui::Button * runBut;
 	cocos2d::MenuItemImage * staveNote[PAGE_VOLUME];
+	// yjp
+	MySynth synth;
+	// yjp
 	bool initButton();
 	bool initBackground();
 	bool noteInit(int model);
