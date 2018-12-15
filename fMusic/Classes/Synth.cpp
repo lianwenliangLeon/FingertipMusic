@@ -30,10 +30,10 @@ MySynth::MySynth(handle_midi_event_func_t midiCallBack, void* data) : MySynth()
 
 MySynth::~MySynth() 
 {
-	delete_fluid_audio_driver(adriver);
-	delete_fluid_synth(synth);
-	delete_fluid_settings(settings);
-	delete_fluid_midi_driver(mdriver);
+	if (adriver != NULL) delete_fluid_audio_driver(adriver);
+	if (synth != NULL) delete_fluid_synth(synth);
+	if (settings != NULL) delete_fluid_settings(settings);
+	if (mdriver != NULL) delete_fluid_midi_driver(mdriver);
 }
 
 void MySynth::initSettings()
